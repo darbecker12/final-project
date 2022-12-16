@@ -7,7 +7,6 @@ const Home = () => {
       <Navbar />
       <div className="m-8 text-center text-5xl text-white ">
       <h1 className="justify-center">DLB Photography</h1>
-      <p className="text-2xl">I like taking pictures</p>
       </div>
     </div>
   )

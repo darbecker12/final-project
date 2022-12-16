@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./component/Navbar";
-import { Routes, Link, Route} from 'react-router-dom';
 
 
 const images = [
@@ -47,11 +46,11 @@ const images = [
 ];
 
 const Photos = () => {
-  const [tag, setTag] = useState("Planes");
+  const [tag, setTag] = useState("All");
   const [filteredImages, setFilteredImages] = useState([]);
 
   useEffect(() => {
-    tag === 'all'
+    tag === 'All'
       ? setFilteredImages(images)
       : setFilteredImages(images.filter(image => image.tag === tag))
   }, [tag]);
@@ -61,7 +60,7 @@ const Photos = () => {
       <Navbar />
       <div handleSetTag={setTag} >
         <div className="text-center my-3">
-        <TagButton name="all" handleSetTag={setTag}/>
+        <TagButton name="All" handleSetTag={setTag}/>
         <TagButton name="Bankhead" handleSetTag={setTag}/>
         <TagButton name="Sports" handleSetTag={setTag}/>
         <TagButton name="Night" handleSetTag={setTag}/>
@@ -72,8 +71,8 @@ const Photos = () => {
         <div className="container px-4 py-8 mx-auto items-center">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
           {filteredImages.map(image => 
-            <div key={image.id} className=" "><Routes>
-              <img className="border-4 border-blue-400 rounded-md hover:border-red-200" src={`/images/${image.imageName}`} alt="" loading="lazy" /></Routes> 
+            <div key={image.id} className=" ">
+              <img className="border-4 border-blue-400 rounded-md" src={`/images/${image.imageName}`} alt="" loading="lazy" />
               </div>      
           )}  
           </div>
